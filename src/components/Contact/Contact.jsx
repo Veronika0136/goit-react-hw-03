@@ -7,13 +7,13 @@ const Contact = ({ name, number }) => {
       <div className={s.info}>
         <div className={s.contact}>
           <svg className={s.icon} width={20} height={20}>
-            <use href="./src/assets/icons.svg#icon-user"></use>
+            <use href="src/assets/icons.svg#icon-user"></use>
           </svg>
           <p>{name}</p>
         </div>
         <div className={s.contact}>
           <svg className={s.icon} width={20} height={20}>
-            <use href="./src/assets/icons.svg#icon-phone"></use>
+            <use href="src/assets/icons.svg#icon-phone"></use>
           </svg>
           <p>{number}</p>
         </div>
