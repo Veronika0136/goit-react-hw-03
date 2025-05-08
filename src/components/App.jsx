@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ContactForm from '../components/ContactForm/ContactForm';
 import SearchBox from '../components/SearchBox/SearchBox';
 import ContactList from '../components/ContactList/ContactList';
+import s from '../components/App.module.css';
 
 const App = () => {
   const initalContactList = [
@@ -14,7 +15,7 @@ const App = () => {
   const [contacts] = useState(initalContactList);
 
   return (
-    <div>
+    <div className={s.section}>
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
