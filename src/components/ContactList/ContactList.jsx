@@ -1,12 +1,15 @@
 import React from 'react';
 import Contact from '../Contact/Contact';
 
-const ContactList = () => {
+const ContactList = ({ contacts }) => {
   return (
-    <div>
-      ContactList
-      <Contact />
-    </div>
+    <ul>
+      {contacts.map(({ name, number, id }) => (
+        <li key={id}>
+          <Contact name={name} number={number} />
+        </li>
+      ))}
+    </ul>
   );
 };
 
