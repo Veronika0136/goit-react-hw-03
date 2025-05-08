@@ -1,5 +1,5 @@
 .card {
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 10px;
   width: 300px;
   padding: 15px;
@@ -27,12 +27,12 @@
 .btn {
   padding: 8px 12px;
   background-color: white;
-  border: 1px solid gray;
+  border: 1px solid red;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .btn:hover {
-  background-color: #f0f0f0;
+  background-color: #ffa8a8;
 }
