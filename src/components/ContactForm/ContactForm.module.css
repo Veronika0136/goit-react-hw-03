@@ -1,0 +1,26 @@
+.wrapper {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; */
+  width: 300px;
+}
+
+.form {
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 1px grey;
+  padding: 20px;
+}
+
+/* .label {
+}
+
+.input {
+}
+
+.err {
+}
+
+.btn {
+} */
