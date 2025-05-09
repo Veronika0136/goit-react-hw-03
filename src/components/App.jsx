@@ -13,13 +13,28 @@ const App = () => {
   ];
 
   const [contacts] = useState(initalContactList);
+  const [values, setValues] = useState('');
+
+  const handleChangeInput = e => {
+    setValues(e.target.value);
+  };
+
+  console.log(values);
+
+  const handeleFilterContacts = (contacts, values) => {
+    return contacts.filter(contact => contact.name.toLowerCase().includes(values.toLowerCase()));
+  };
+
+  const filterContacts = handeleFilterContacts(contacts, values);
+
+  console.log(filterContacts);
 
   return (
     <div className={s.section}>
       <h1>Phonebook</h1>
       <ContactForm />
-      <SearchBox />
-      <ContactList contacts={contacts} />
+      <SearchBox values={values} handleChangeInput={handleChangeInput} />
+      <ContactList contacts={filterContacts} />
     </div>
   );
 };

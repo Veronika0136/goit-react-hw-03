@@ -1,15 +1,13 @@
 import React from 'react';
 import s from './SearchBox.module.css';
 
-const SearchBox = () => {
+const SearchBox = ({ values, handleChangeInput }) => {
   return (
     <div>
-      <form>
-        <label className={s.label}>
-          <span>Find contacts by name</span>
-          <input className={s.input} />
-        </label>
-      </form>
+      <label className={s.label}>
+        <span>Find contacts by name</span>
+        <input className={s.input} value={values} onChange={handleChangeInput} />
+      </label>
     </div>
   );
 };
