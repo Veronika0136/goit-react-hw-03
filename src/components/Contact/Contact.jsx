@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Contact.module.css';
 
-const Contact = ({ name, number }) => {
+const Contact = ({ name, number, id, handleDeleteContact }) => {
   return (
     <div className={s.card}>
       <div className={s.info}>
@@ -18,7 +18,9 @@ const Contact = ({ name, number }) => {
           <p>{number}</p>
         </div>
       </div>
-      <button className={s.btn}>Delete</button>
+      <button className={s.btn} onClick={() => handleDeleteContact(id)}>
+        Delete
+      </button>
     </div>
   );
 };

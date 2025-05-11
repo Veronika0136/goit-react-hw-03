@@ -3,17 +3,40 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import s from './ContactForm.module.css';
 
-const ContactForm = () => {
-  const handleSubmit = (values, options) => {
-    console.log(values);
-    options.resetForm();
+const ContactForm = ({ handleSubmit }) => {
+  // const handleSubmit = (values, options) => {
+  //   console.log(values);
+  //   const newValues = { ...values, id: nanoid() };
+  //   console.log(newValues);
+  //   options.resetForm();
+  // };
+
+  const initialValues = {
+    name: '',
+    number: '',
   };
 
-  const initialValues = { name: '', number: '', id: '' };
+  const ContactSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(3, 'Mini 3 characters')
+      .max(50, 'Max 50 characters')
+      .trim()
+      .required('Name is required'),
+    number: Yup.string()
+      .matches(/^[0-9\-()+\s]+$/, 'Must be a valid phone number')
+      .min(9, 'There must be a number format')
+      .max(12, 'Max 12 numbers')
+      .trim()
+      .required('Phone number is required'),
+  });
 
   return (
     <div className={s.wrapper}>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik
+        validationSchema={ContactSchema}
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+      >
         <Form className={s.form}>
           <label className={s.label}>
             <span>Name</span>

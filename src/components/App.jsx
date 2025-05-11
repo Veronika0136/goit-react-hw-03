@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 import ContactForm from '../components/ContactForm/ContactForm';
 import SearchBox from '../components/SearchBox/SearchBox';
 import ContactList from '../components/ContactList/ContactList';
@@ -12,7 +13,7 @@ const App = () => {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ];
 
-  const [contacts] = useState(initalContactList);
+  const [contacts, setContacts] = useState(initalContactList);
   const [values, setValues] = useState('');
 
   const handleChangeInput = e => {
@@ -29,12 +30,29 @@ const App = () => {
 
   console.log(filterContacts);
 
+  const handleSubmit = (values, options) => {
+    const newValues = { ...values, id: nanoid() };
+    console.log(newValues);
+    setContacts(contacts => [...contacts, newValues]);
+    console.log(contacts);
+
+    options.resetForm();
+  };
+
+  const handleDeleteContact = id => {
+    // const newContacts = contacts.filter(contact => contact.id !== id);
+    // console.log(newContacts);
+    setContacts(contacts => {
+      return contacts.filter(contact => contact.id !== id);
+    });
+  };
+
   return (
     <div className={s.section}>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm handleSubmit={handleSubmit} />
       <SearchBox values={values} handleChangeInput={handleChangeInput} />
-      <ContactList contacts={filterContacts} />
+      <ContactList contacts={filterContacts} handleDeleteContact={handleDeleteContact} />
     </div>
   );
 };
