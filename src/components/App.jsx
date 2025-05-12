@@ -8,7 +8,7 @@ import s from '../components/App.module.css';
 
 const App = () => {
   const [contacts, setContacts] = useState(
-    () => JSON.parse(localStorage.getItem('contacts')) || initialContactList
+    () => JSON.parse(localStorage.getItem('dataContacts')) || initialContactList
   );
   const [values, setValues] = useState('');
 
